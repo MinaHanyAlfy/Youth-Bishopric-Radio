@@ -1,0 +1,6 @@
+framework module Pods_Youth_Bishopric_Radio {
+  umbrella header "Pods-Youth Bishopric Radio-umbrella.h"
+
+  export *
+  module * { export * }
+}
