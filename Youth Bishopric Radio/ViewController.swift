@@ -27,6 +27,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // get Api Comment
+        likeButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        shareButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        commentButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        listButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         let service = Netwwork.init(baseUrl: endpoint)
         service.getComments()
         reload(network: service)
@@ -43,8 +47,12 @@ class ViewController: UIViewController {
         commentTextField.isHidden = true
         sendButton.isHidden = true
         let tap = UITapGestureRecognizer(target: self, action:  #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        
+
+        if UserDefaults.standard.integer(forKey: "state") != nil {
+            if UserDefaults.standard.integer(forKey: "state") == 1{
+                likeButton.tintColor = #colorLiteral(red: 0.9546738267, green: 0.5322668552, blue: 0.6495662928, alpha: 1)
+            }
+        }
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -91,11 +99,9 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
             player.play()
-            //            if waveProgressView.volumes.count == 30 {
-            //                waveProgressView.clearVolumes()
-            ////                waveProgressView.drawVerticalLines()
-            //            }
-            //        }
+
+                
+            
         }
     }
     @objc func changeProgressView(){
@@ -147,6 +153,7 @@ extension ViewController{
     }
     @IBAction func listAction(_ sender: Any) {
         commentsTableView.isHidden = true
+        commentButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         let origImage = UIImage(named: "comment")
         let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
         commentButton.setImage(tintedImage, for: .normal)
@@ -156,11 +163,14 @@ extension ViewController{
         let origImage = UIImage(named: "like")
         let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
         likeButton.setImage(tintedImage, for: .normal)
+        
         if likeButton.tintColor == #colorLiteral(red: 0.9546738267, green: 0.5322668552, blue: 0.6495662928, alpha: 1) {
-        likeButton.tintColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        likeButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            UserDefaults.standard.set(0, forKey: "state")
         }
         else{
             likeButton.tintColor = #colorLiteral(red: 0.9546738267, green: 0.5322668552, blue: 0.6495662928, alpha: 1)
+            UserDefaults.standard.set(0, forKey: "state")
         }
         let service = Netwwork.init(baseUrl: endpoint)
         service.likeOrUnlike(state: likeOrUn())
@@ -178,7 +188,7 @@ extension ViewController{
         let origImage = UIImage(named: "comment")
         let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
         commentButton.setImage(tintedImage, for: .normal)
-        //        commentButton.tintColor = #colorLiteral(red: 0.9546738267, green: 0.5322668552, blue: 0.6495662928, alpha: 1)
+                commentButton.tintColor = #colorLiteral(red: 0.9546738267, green: 0.5322668552, blue: 0.6495662928, alpha: 1)
         self.commentsTableView.reloadData()
         commentsTableView.isHidden = false
         sendButton.isHidden = false
@@ -187,7 +197,7 @@ extension ViewController{
         
     }
     @IBAction func shareAction(_ sender: Any) {
-        
+//        commentButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
     func reload(network:Netwwork){
         network.completionHandler { [weak self] (comments,status , message) in

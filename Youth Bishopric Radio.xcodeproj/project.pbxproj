@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,7 +60,6 @@
 				34B7F421B4204F277F7C515B /* Pods-Youth Bishopric Radio.debug.xcconfig */,
 				3518B6A9678F1ED06D7DD052 /* Pods-Youth Bishopric Radio.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
