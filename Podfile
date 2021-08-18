@@ -6,6 +6,8 @@ target 'Youth Bishopric Radio' do
   use_frameworks!
  pod 'Alamofire'
  pod 'Kanna'
+ pod 'Firebase/Analytics'
+ pod 'Firebase/Messaging'
   # Pods for Youth Bishopric Radio
 
 end

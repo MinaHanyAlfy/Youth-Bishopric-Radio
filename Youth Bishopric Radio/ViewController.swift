@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var navImageView: UIImageView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var commentsTableView: UITableView!
+//    @IBOutlet weak var backGround2Image: UIImageView!
     var timer = Timer()
     var likeState = 0
     var comments = [Comment]()
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
         reload(network: service)
         playButton.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         registCells()
-        
+        commentsTableView.reloadData()
         //let url = "http://listen.shoutcast.com/radiodeltalebanon"
         let url = "http://52.57.74.202:8000/listen.pls?sid=1"
         player = AVPlayer(url: URL(string: url)!)
@@ -51,17 +52,25 @@ class ViewController: UIViewController {
         sendButton.isHidden = true
         let tap = UITapGestureRecognizer(target: self, action:  #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
+    func showToast() {
+        let alert = UIAlertController(title: "Hey!", message: "There's no live radio right now ,try later.", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        self.present(alert, animated: true)    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         likeButton.badgeEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 15)
         playButton.clipsToBounds =  true
         playButton.layer.cornerRadius = playButton.frame.width / 2
-        navImageView.roundCorners(corners: [.bottomLeft,.bottomRight], radius: navImageView.frame.width / 2)
+        navImageView.roundCorners(corners: [.bottomLeft,.bottomRight], radius: navImageView.frame.width / 2 - 64)
+//        backGround2Image.clipsToBounds = true
+//        backGround2Image.roundCorners(corners: [.bottomLeft,.bottomRight], radius: navImageView.frame.width / 2 - 64)
     }
     
 
@@ -116,7 +125,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = commentsTableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
         cell.commentDescLabel.text = comments[indexPath.row].text
         cell.dateLabel.text = comments[indexPath.row].datetime
-//        likeButton.badge = "\(comments[indexPath.row].likes!)"
+        likeButton.badge = "\(comments[indexPath.row].likes!)"
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -139,6 +148,7 @@ extension ViewController{
         commentsTableView.isHidden = true
         let origImage = UIImage(named: "comment")
         let origImage2 = UIImage(named: "listFill")
+       
 //        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
         commentButton.setImage(origImage, for: .normal)
         listButton.setImage(origImage2, for: .normal)
@@ -159,7 +169,10 @@ extension ViewController{
 //            likeButton.badge = "\(comments[0].likes!)"
             service.likeOrUnlike(state: likeState)
             Configuration.value(value: likeState, forKey: "key_1")
-            likeButton.badge = "\(Int(comments[0].likes!)! + 1 )"
+            if comments[0] != nil {
+            likeButton.badge = "\(Int(comments[0].likes!)! )"
+                service.likeOrUnlike(state: likeState)
+            }else {return}
         }
         else{
             likeState = 0
@@ -167,8 +180,11 @@ extension ViewController{
             likeButton.setImage(UIImage(named: "like.png"), for: .normal)
             Configuration.value(value: likeState, forKey: "key_1")
            
-            likeButton.badge = "\(Int(comments[0].likes!)! - 1 )"
-            service.likeOrUnlike(state: likeState)
+            if comments[0] != nil {
+            likeButton.badge = "\(Int(comments[0].likes!)! )"
+                service.likeOrUnlike(state: likeState)
+            }else {return}
+           
 
         }
         
@@ -191,7 +207,19 @@ extension ViewController{
         
     }
     @IBAction func shareAction(_ sender: Any) {
-        //        commentButton.tintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        if let urlStr = NSURL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8") {
+            let objectsToShare = ["From Youth Bishopric Radio "]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                if let popup = activityVC.popoverPresentationController {
+                    popup.sourceView = self.view
+                    popup.sourceRect = CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0)
+                }
+            }
+
+            self.present(activityVC, animated: true, completion: nil)
+        }
     }
     func reload(network:Netwwork){
         network.completionHandler { [weak self] (comments,status , message) in
@@ -230,7 +258,7 @@ extension ViewController {
                     if link.text == "Stream is currently down." {
                         playButton.setImage(UIImage(named: "play"), for: .normal)
                         player.pause()
-                        
+                        showToast()
                     }
                 }
             }

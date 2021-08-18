@@ -27,6 +27,7 @@
 		34B7F421B4204F277F7C515B /* Pods-Youth Bishopric Radio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youth Bishopric Radio.debug.xcconfig"; path = "Target Support Files/Pods-Youth Bishopric Radio/Pods-Youth Bishopric Radio.debug.xcconfig"; sourceTree = "<group>"; };
 		3518B6A9678F1ED06D7DD052 /* Pods-Youth Bishopric Radio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Youth Bishopric Radio.release.xcconfig"; path = "Target Support Files/Pods-Youth Bishopric Radio/Pods-Youth Bishopric Radio.release.xcconfig"; sourceTree = "<group>"; };
 		75640FF097F17A9E1D3792BD /* Pods_Youth_Bishopric_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Youth_Bishopric_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD206DF826CD36D4005FFBDA /* Youth Bishopric Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Youth Bishopric Radio.entitlements"; sourceTree = "<group>"; };
 		DD61C84326CBFBCA00FCF232 /* SSBadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSBadgeButton.swift; sourceTree = "<group>"; };
 		DD8FB5BF26C9559100128115 /* WavedProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavedProgressView.swift; sourceTree = "<group>"; };
 		DD8FB5C126C96A4600128115 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		DDEB9E5626C9237600A24966 /* Youth Bishopric Radio */ = {
 			isa = PBXGroup;
 			children = (
+				DD206DF826CD36D4005FFBDA /* Youth Bishopric Radio.entitlements */,
 				DDEB9E5726C9237600A24966 /* AppDelegate.swift */,
 				DDEB9E5926C9237600A24966 /* SceneDelegate.swift */,
 				DDEB9E5B26C9237600A24966 /* ViewController.swift */,
@@ -383,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Youth Bishopric Radio/Youth Bishopric Radio.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CY2AEF747B;
 				INFOPLIST_FILE = "Youth Bishopric Radio/Info.plist";
@@ -404,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Youth Bishopric Radio/Youth Bishopric Radio.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CY2AEF747B;
 				INFOPLIST_FILE = "Youth Bishopric Radio/Info.plist";
