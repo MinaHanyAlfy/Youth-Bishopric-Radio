@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>748435493183-tojs00411ivfvhse5s6nmavgubcsciq4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.748435493183-tojs00411ivfvhse5s6nmavgubcsciq4</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>748435493183-u3gk1qajhvpc1afa9rfue462c1r1l7t2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAa2lvwhFAk_Y2XVW97p9FpF1iklkPj90g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>748435493183</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.petra.Youth-Bishopric-Radio</string>
+	<key>PROJECT_ID</key>
+	<string>youthbishopricradio</string>
+	<key>STORAGE_BUCKET</key>
+	<string>youthbishopricradio.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:748435493183:ios:6f3deb5a5d21f19289038a</string>
+	<key>DATABASE_URL</key>
+	<string>https://youthbishopricradio.firebaseio.com</string>
+</dict>
+</plist>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8452ED7B212A270E7ACE2D20 /* Pods_Youth_Bishopric_Radio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75640FF097F17A9E1D3792BD /* Pods_Youth_Bishopric_Radio.framework */; };
 		DD61C84426CBFBCA00FCF232 /* SSBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD61C84326CBFBCA00FCF232 /* SSBadgeButton.swift */; };
+		DD83BFFE26CEBF56006FF137 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD83BFFD26CEBF55006FF137 /* GoogleService-Info.plist */; };
 		DD8FB5C026C9559100128115 /* WavedProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8FB5BF26C9559100128115 /* WavedProgressView.swift */; };
 		DD8FB5C326C96A4600128115 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8FB5C126C96A4600128115 /* CommentTableViewCell.swift */; };
 		DD8FB5C426C96A4600128115 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD8FB5C226C96A4600128115 /* CommentTableViewCell.xib */; };
@@ -29,6 +30,7 @@
 		75640FF097F17A9E1D3792BD /* Pods_Youth_Bishopric_Radio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Youth_Bishopric_Radio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD206DF826CD36D4005FFBDA /* Youth Bishopric Radio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Youth Bishopric Radio.entitlements"; sourceTree = "<group>"; };
 		DD61C84326CBFBCA00FCF232 /* SSBadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSBadgeButton.swift; sourceTree = "<group>"; };
+		DD83BFFD26CEBF55006FF137 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD8FB5BF26C9559100128115 /* WavedProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavedProgressView.swift; sourceTree = "<group>"; };
 		DD8FB5C126C96A4600128115 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		DD8FB5C226C96A4600128115 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		DDEB9E5626C9237600A24966 /* Youth Bishopric Radio */ = {
 			isa = PBXGroup;
 			children = (
+				DD83BFFD26CEBF55006FF137 /* GoogleService-Info.plist */,
 				DD206DF826CD36D4005FFBDA /* Youth Bishopric Radio.entitlements */,
 				DDEB9E5726C9237600A24966 /* AppDelegate.swift */,
 				DDEB9E5926C9237600A24966 /* SceneDelegate.swift */,
@@ -175,6 +178,7 @@
 			files = (
 				DDEB9E6726C9237700A24966 /* LaunchScreen.storyboard in Resources */,
 				DDEB9E6426C9237700A24966 /* Assets.xcassets in Resources */,
+				DD83BFFE26CEBF56006FF137 /* GoogleService-Info.plist in Resources */,
 				DDEB9E5F26C9237600A24966 /* Main.storyboard in Resources */,
 				DD8FB5C426C96A4600128115 /* CommentTableViewCell.xib in Resources */,
 			);
