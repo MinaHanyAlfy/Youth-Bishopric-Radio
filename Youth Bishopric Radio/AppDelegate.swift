@@ -48,7 +48,8 @@ var window: UIWindow?
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
       print("Firebase registration token: \(String(describing: fcmToken))")
-
+        UserDefaults.standard.set((String(describing: fcmToken)), forKey: "token")
+        
       let dataDict: [String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(
         name: Notification.Name("FCMToken"),

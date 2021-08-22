@@ -52,7 +52,8 @@ class ViewController: UIViewController {
         sendButton.isHidden = true
         let tap = UITapGestureRecognizer(target: self, action:  #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-        
+        heelo()
+        service.sendToken()
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
@@ -251,11 +252,11 @@ extension ViewController {
         do {
             let myHTMLString = try String(contentsOf: myURL!, encoding: .ascii)
             if let doc = try? HTML(html: myHTMLString, encoding: .utf8) {
-                print(doc.title)
+                print("here\(doc)")
                 for link in doc.xpath("//b | //link") {
                     print("here\(link.text)")
                     print(link["href"])
-                    if link.text == "Stream is currently down." {
+                    if link.text! == "Stream is currently down.There is no source connected or no stream is configured for stream #1" {
                         playButton.setImage(UIImage(named: "play"), for: .normal)
                         player.pause()
                         showToast()
